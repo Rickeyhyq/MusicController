@@ -2,4 +2,24 @@
 const http = require('http'),
       fs = require('fs'),
       path = require('path'),
-      xtpl = require('xtpl')
+      // 引入第三方包
+      xtpl = require('xtpl'),
+      // 引入音乐数据(转为了js对象)
+      musics = require('./musics.json')
+
+const server = http.createServer()
+server.on('request', (req, res) => {
+  const urlString = req.url
+  if (urlString === '/' || urlString.includes('index.html')) {
+
+    res.setHeader('Content-Type', 'text/html;charset=utf-8')
+    res.end('Hello World')
+  }
+})
+
+server.listen(5000, '127.0.0.1', (error) => {
+  if (error) {
+    console.log(error)
+  }
+  console.log('Start server OK')
+})
