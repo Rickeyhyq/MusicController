@@ -32,6 +32,13 @@ server.on('request', (req, res) => {
       res.setHeader('Content-Type', 'text/javascript;charset=utf-8')
       res.end(data.toString())
     })
+  } else if (urlString.includes('mp3')) {
+    fs.readFile(path.join(__dirname, 'statics/music' + urlString), (error, data) => {
+
+      res.setHeader('Content-Type', 'audio/mpeg;charset=utf-8')
+      // 音频文件文二进制文件，不需要转成字符串格式
+      res.end(data)
+    })
   }
 })
 

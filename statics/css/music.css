@@ -12,3 +12,9 @@ td, th {
   width: 200px;
   height: 40px;
 }
+audio {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  margin-left: -150px;
+}

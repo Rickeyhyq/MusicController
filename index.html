@@ -24,13 +24,13 @@
     {{/each}}
   </table>
 
-  <audio src="" autoplay></audio>
+  <audio src="" autoplay controls></audio>
 </body>
 <script type="text/javascript">
-  function paly(musicName) {
+  function play(musicName) {
     var musicURL = '/' + musicName
     console.log(musicURL)
-    $('audio').attr('src', musicName)
+    $('audio').attr('src', musicURL)
   }
 </script>
 
