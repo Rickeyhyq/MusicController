@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <link href="/music.css" rel="stylesheet">
+</head>
+
+<body>
+  <table>
+    <tr>
+      <th>序号</th>
+      <th>歌曲名称</th>
+      <th>操作</th>
+    </tr>
+    {{#each(musics)}} 
+      <tr>
+        <td>{{ xindex }}</td>
+        <td>{{ this.name }}</td>
+        <td><a href="#">删除</a></td>
+      </tr>
+    {{/each}}
+  </table>
+</body>
+
+</html>
