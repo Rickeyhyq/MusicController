@@ -12,6 +12,7 @@ server.on('request', (req, res) => {
   const urlString = req.url
   if (urlString === '/' || urlString.includes('index.html')) {
 
+    console.log(urlString)
     res.setHeader('Content-Type', 'text/html;charset=utf-8')
     res.end('Hello World')
   }
