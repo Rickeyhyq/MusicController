@@ -5,11 +5,12 @@ const http = require('http'),
       // 引入第三方包
       xtpl = require('xtpl'),
       // 引入音乐数据(转为了js对象)
-      datas = require('./musics.json')
-
+      datas = require('./musics.json'),
+      // 引入query string 模块解决 url编码问题
+      querystring = require('querystring')
 const server = http.createServer()
 server.on('request', (req, res) => {
-  const urlString = req.url
+  let urlString = req.url
   if (urlString === '/' || urlString.includes('index.html')) {
     console.log(urlString)
     // 获取数据渲染模板页
@@ -33,6 +34,8 @@ server.on('request', (req, res) => {
       res.end(data.toString())
     })
   } else if (urlString.includes('mp3')) {
+    // 解决post请求中文路径url百分比编码问题
+    urlString = querystring.unescape(urlString)
     fs.readFile(path.join(__dirname, 'statics/music' + urlString), (error, data) => {
 
       res.setHeader('Content-Type', 'audio/mpeg;charset=utf-8')
