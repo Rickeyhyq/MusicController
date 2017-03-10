@@ -5,23 +5,33 @@
   <title></title>
   <meta charset="UTF-8">
   <link href="/music.css" rel="stylesheet">
+  <script src="/jquery.min.js"></script>
 </head>
 
 <body>
-  <table>
+  <table border="1">
     <tr>
       <th>序号</th>
       <th>歌曲名称</th>
       <th>操作</th>
     </tr>
-    {{#each(musics)}} 
-      <tr>
-        <td>{{ xindex }}</td>
-        <td>{{ this.name }}</td>
-        <td><a href="#">删除</a></td>
-      </tr>
+    {{#each(musics)}}
+    <tr>
+      <td>{{ xindex }}</td>
+      <td>{{ this.name }}</td>
+      <td><a href="javascript:play('{{ this.name }}')">播放</a></td>
+    </tr>
     {{/each}}
   </table>
+
+  <audio src="" autoplay></audio>
 </body>
+<script type="text/javascript">
+  function paly(musicName) {
+    var musicURL = '/' + musicName
+    console.log(musicURL)
+    $('audio').attr('src', musicName)
+  }
+</script>
 
 </html>
