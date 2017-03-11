@@ -11,15 +11,16 @@ const http = require('http'),
 const server = http.createServer()
 server.on('request', (req, res) => {
   let urlString = req.url
+  // 根据请求地址判断请求的类型
   if (urlString === '/' || urlString.includes('index.html')) {
     console.log(urlString)
     // 获取数据渲染模板页
     xtpl.renderFile(path.join(__dirname, 'index.html'), {
       musics: datas
     }, (error, data) => {
+      // 将渲染好的页面返回给浏览器
       let htmlContent = data.toString()
-      // console.log(htmlContent)
-
+      
       res.setHeader('Content-Type', 'text/html;charset=utf-8')
       res.end(htmlContent)
     })
