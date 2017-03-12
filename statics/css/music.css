@@ -2,6 +2,7 @@ table {
   border-collapse: collapse;
   text-align: center;
   margin: 100px auto 0;
+  width: 600px;
 }
 th {
   background-color: deepskyblue;
@@ -9,7 +10,7 @@ th {
   font: 20px '微软雅黑'
 }
 td, th {
-  width: 200px;
+  /*width: 200px;*/
   height: 40px;
 }
 audio {

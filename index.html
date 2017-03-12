@@ -4,8 +4,8 @@
 <head>
   <title></title>
   <meta charset="UTF-8">
-  <link href="/music.css" rel="stylesheet">
-  <script src="/jquery.min.js"></script>
+  <link href="/css/music.css" rel="stylesheet">
+  <script src="/js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
 </body>
 <script type="text/javascript">
   function play(musicName) {
-    var musicURL = '/' + musicName
+    var musicURL = '/music/' + musicName
     console.log(musicURL)
     $('audio').attr('src', musicURL)
   }
